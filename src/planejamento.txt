@@ -1,0 +1,13 @@
+- buscar post
+- listar posts (feed)
+- navegação entre paginas
+- crirar posts
+- editar posts
+- deletar posts
+
+
+   POST             CRUD
+- crirar          -create
+- editar          -read
+- atualizar       -update
+- deletar         -delete
