@@ -21,18 +21,33 @@ export default {
         content: "",
         /*para pegar as infos colocadas*/
       },
+      search: "",
     };
+  },
+  computed: {
+    filteredPosts() {
+      //se search estiver vazio, retorne a lista completa de posts
+      if (!this.search) return this.posts;
+
+      //se tiver qualquer coisa em search, faz o filtro
+      const listaFinal = [];
+      for (const post of this.posts) {
+        if (post.title.includes(this.search)) {
+          listaFinal.push(post);  
+        }
+      }
+      return listaFinal;
+    },
   },
   methods: {
     handleClick(event) {
       console.log(this.formData);
-      
+
       //adicionar o post para lista de posts:
-      const now = new Date()
-      const dataDaPostagem = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`;
-    
-
-
+      const now = new Date();
+      const dataDaPostagem = `${now.getDate()}/${
+        now.getMonth() + 1
+      }/${now.getFullYear()}`;
 
       //metodo 1:
       /* this.posts[this.posts.length] = {
@@ -61,8 +76,9 @@ export default {
 </script>
 
 <template>
+  <input v-model="search" placeholder="Procure pelo título do post..." />
   <div id="lista-posts">
-    <div class="post" v-for="x in posts" :key="posts.title">
+    <div class="post" v-for="x in filteredPosts" :key="posts.title">
       <h3>{{ x.title }}</h3>
       <h4>{{ x.datetime }}</h4>
       <p>{{ x.content }}</p>
@@ -70,10 +86,14 @@ export default {
   </div>
 
   <form>
-
     <!-- <input :value="text" @input="event => text = event.target.value"> -->
-    <input v-model="formData.title" placeholder="Título"/>
-    <textarea v-model="formData.content" placeholder="Escreva seu post aqui..." rows="10" cols="50"></textarea>
+    <input v-model="formData.title" placeholder="Título" />
+    <textarea
+      v-model="formData.content"
+      placeholder="Escreva seu post aqui..."
+      rows="10"
+      cols="50"
+    ></textarea>
     <button type="button" @click="handleClick">Criar</button>
   </form>
 
@@ -81,8 +101,7 @@ export default {
 </template>
 
 <style scoped>
-
-#lista-posts{
+#lista-posts {
   display: flex;
   flex-direction: column;
   justify-content: center;
