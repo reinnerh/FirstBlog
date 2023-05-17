@@ -76,7 +76,7 @@ export default {
 </script>
 
 <template>
-  <input v-model="search" placeholder="Procure pelo título do post..." />
+  <input id="search" v-model="search" placeholder="Procure pelo título do post..." />
   <div id="lista-posts">
     <div class="post" v-for="x in filteredPosts" :key="posts.title">
       <h3>{{ x.title }}</h3>
@@ -111,12 +111,14 @@ export default {
 }
 
 .post {
+  margin-top: 1rem;
   height: 150px;
   width: 400px;
   padding: 20px;
   border: 2px solid #ccc;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
+  overflow: auto;
 }
 
 .post:hover {
@@ -147,10 +149,10 @@ form > * {
 
 form > input:focus,
 form > textarea:focus {
-  border: 2px solid #ccc;
+  border: 5px solid #ccc;
 }
 
-form > button {
+form button {
   background-color: #30629c;
   color: #fff;
   font-size: 16px;
@@ -161,20 +163,21 @@ form > button {
   transition: all 0.3s ease-in-out;
 }
 
-form > button:hover {
+form button:hover {
   background-color: #659bd1;
 }
 
-input[type="search"] {
+#search {
   padding: 10px;
-  font-size: 16px;
+  font-size: 13px;
   border: 2px solid #ccc;
   border-radius: 10px;
-  width: 100%;
-  transition: all 0.3s ease-in-out;
+  width: 20%;
+  transition: all 0.5s ease-in-out;
 }
 
-input[type="search"]:focus {
+#search:focus {
   border: 2px solid #0077ff;
+  background-color: #6e88a7;
 }
 </style>
