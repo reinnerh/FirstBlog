@@ -1,6 +1,6 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
-
+import "@/assets/base.css";
 export default {
   data() {
     return {
@@ -33,7 +33,7 @@ export default {
       const listaFinal = [];
       for (const post of this.posts) {
         if (post.title.includes(this.search)) {
-          listaFinal.push(post);  
+          listaFinal.push(post);
         }
       }
       return listaFinal;
@@ -103,16 +103,25 @@ export default {
 <style scoped>
 #lista-posts {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
+  gap: 20px;
 }
 
 .post {
   height: 150px;
-  width: 300px;
-  margin: 10px;
+  width: 400px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 form {
@@ -120,10 +129,52 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 form > * {
   margin: 1rem;
-  border-color: transparent;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+form > input:focus,
+form > textarea:focus {
+  border: 2px solid #ccc;
+}
+
+form > button {
+  background-color: #30629c;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+form > button:hover {
+  background-color: #659bd1;
+}
+
+input[type="search"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="search"]:focus {
+  border: 2px solid #0077ff;
 }
 </style>
