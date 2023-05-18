@@ -30,7 +30,7 @@ export default {
 <style scoped>
 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .nav-link {
