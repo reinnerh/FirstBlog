@@ -24,7 +24,9 @@ export default {
     </nav>
   </header>
 
-  <RouterView :posts="posts" @create-post="addPost" />
+  <main>
+    <RouterView :posts="posts" @create-post="addPost" />
+  </main>
 </template>
 
 <style scoped>
