@@ -60,20 +60,24 @@ export default {
 
 .post:hover {
   transform: translateY(-5px);
+  background-color: rgb(193, 226, 255);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 #search {
+  display: block;
+  margin: auto;
   padding: 10px;
   font-size: 13px;
   border: 2px solid #ccc;
   border-radius: 10px;
   width: 20%;
   transition: all 0.5s ease-in-out;
+
 }
 
 #search:focus {
-  border: 2px solid #0077ff;
-  background-color: #6e88a7;
+  border: 2px ridge #53a3ff;
+  background-color: rgb(193, 226, 255);
 }
 </style>
