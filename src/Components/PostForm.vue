@@ -1,9 +1,10 @@
 <script>
 export default {
   props: {
-    post:Object,
+    post: Object,
+    id: String,
   },
-  
+
   data() {
     return {
       formData: {
@@ -12,7 +13,7 @@ export default {
         /*para pegar as infos colocadas*/
       },
       editable: Boolean(this.post),
-      buttonText: Boolean(this.post) === true ? "Editar Post" : "Criar Post"
+      buttonText: Boolean(this.post) === true ? "Editar Post" : "Criar Post",
     };
   },
   methods: {
@@ -28,7 +29,7 @@ export default {
       const now = new Date();
       const dataDaPostagem = `${now.getDate()}/${
         now.getMonth() + 1
-      }/${now.getFullYear()}`;
+      }/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`;
 
       //metodo 1:
       /* this.posts[this.posts.length] = {
@@ -36,17 +37,17 @@ export default {
         content: this.formData.content,
       } */
 
-      //emitir o evento create-post
-      const newPost = {
+      const objPost = {
         title: this.formData.title,
         content: this.formData.content,
         datetime: dataDaPostagem,
       };
 
-      if (this.editable === true){
-        this.$emit("edit-post",newPost, this.$route.params.id)
+      if (this.editable) {
+        this.$emit("edit-post", objPost, this.id);
       } else {
-      (this.$emit("create-post", newPost))}
+        this.$emit("create-post", objPost);
+      }
 
       this.formData = {
         title: "",
@@ -69,7 +70,7 @@ export default {
       cols="50"
     ></textarea>
 
-    <button type="button" @click="handleCreatePost">{{buttonText}}</button>
+    <button type="button" @click="handleCreatePost">{{ buttonText }}</button>
   </form>
 </template>
 
