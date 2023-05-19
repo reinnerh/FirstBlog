@@ -11,7 +11,8 @@ export default {
         content: this.post?.content || "",
         /*para pegar as infos colocadas*/
       },
-      editable: Boolean(this.post)
+      editable: Boolean(this.post),
+      buttonText: Boolean(this.post) === true ? "Editar Post" : "Criar Post"
     };
   },
   methods: {
@@ -68,7 +69,7 @@ export default {
       cols="50"
     ></textarea>
 
-    <button type="button" @click="handleCreatePost">Criar</button>
+    <button type="button" @click="handleCreatePost">{{buttonText}}</button>
   </form>
 </template>
 
