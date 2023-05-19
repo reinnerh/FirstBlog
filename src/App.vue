@@ -24,7 +24,7 @@ export default {
       this.posts.push(newPost);
     },
     updatePost(updatePost, id) {
-      this.post[id] = updatePost;
+      this.posts[id] = updatePost;
     },
   },
 };

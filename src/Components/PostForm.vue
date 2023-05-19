@@ -11,6 +11,7 @@ export default {
         content: this.post?.content || "",
         /*para pegar as infos colocadas*/
       },
+      editable: Boolean(this.post)
     };
   },
   methods: {
@@ -41,7 +42,10 @@ export default {
         datetime: dataDaPostagem,
       };
 
-      this.$emit("create-post", newPost);
+      if (this.editable === true){
+        this.$emit("edit-post",newPost, this.$route.params.id)
+      } else {
+      (this.$emit("create-post", newPost))}
 
       this.formData = {
         title: "",
