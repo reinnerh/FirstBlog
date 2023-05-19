@@ -4,13 +4,27 @@ import "@/assets/base.css";
 export default {
   data() {
     return {
-      posts: [],
+      posts: [
+        {
+          title: "Primeiro Post",
+          datetime: "23/08/476d.C",
+          content: "Odoacro se autoproclamou o primeiro rei da Itália.",
+        },
+        {
+          title: "Segundo Post",
+          datetime: "29/05/1453",
+          content: "Mehmed II finaliza o cerco de Constantinopla.",
+        },
+      ],
     };
   },
   methods: {
     addPost(newPost) {
       //adicionar um novo post a lista de posts
       this.posts.push(newPost);
+    },
+    updatePost(updatePost, id) {
+      this.post[id] = updatePost;
     },
   },
 };
@@ -25,7 +39,7 @@ export default {
   </header>
 
   <main>
-    <RouterView :posts="posts" @create-post="addPost" />
+    <RouterView :posts="posts" @create-post="addPost" @edit-post="updatePost" />
   </main>
 </template>
 
