@@ -80,7 +80,7 @@ export default {
         </div>
 
       <h4>{{ x.datetime }}</h4>
-      <p>{{ x.content }}</p>
+      <p class="text-content">{{ x.content }}</p>
     </div>
   </div>
   <div class="modal" v-show="showModal">
@@ -113,10 +113,20 @@ a:-webkit-any-link {
   border: 2px solid #ccc;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
-  overflow: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.text-content {
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 .post:hover {
   transform: translateY(-5px);
