@@ -16,7 +16,7 @@ export default {
   <main>
     <h2>{{ post.title }}</h2>
     <h4>{{ post.datetime }}</h4>
-    <textarea readonly :value="post.content" rows="10" cols="50"></textarea>
+    <textarea readonly :value="post.content" rows="40" cols="200"></textarea>
   </main>
 </template>
 
