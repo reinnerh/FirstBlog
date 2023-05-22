@@ -49,9 +49,9 @@ export default {
     },
     deletePost() {
       const id = this.getPostID(this.selectedPost.title);
-      this.$emit("delete-post",id);
-      this.setupModal()
-    }
+      this.$emit("delete-post", id);
+      this.setupModal();
+    },
   },
 };
 </script>
@@ -64,17 +64,21 @@ export default {
   />
   <div id="lista-posts">
     <div class="post" v-for="x in filteredPosts" :key="posts.title">
+      <div class="flex">
       <h3>
-        {{ x.title }}
+        <RouterLink :to="`/detail/${getPostID(x.title)}`">
+          {{ x.title }}
+        </RouterLink>
+      </h3>
         <RouterLink :to="`/edit/${getPostID(x.title)}`">
           <span class="material-symbols-rounded">edit</span>
         </RouterLink>
         <span
-          class="material-symbols-rounded"
+          class="material-symbols-rounded red"
           @click="setupModal(getPostID(x.title))"
-          >delete</span
-        >
-      </h3>
+          >delete</span>
+        </div>
+
       <h4>{{ x.datetime }}</h4>
       <p>{{ x.content }}</p>
     </div>
@@ -86,13 +90,24 @@ export default {
 
       <div class="modal-actions">
         <button class="bg-error" @click="setupModal">Cancelar</button>
-        <button class="bg-success" @click="deletePost" >Confirmar</button>
+        <button class="bg-success" @click="deletePost">Confirmar</button>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.red {
+  color: red;
+}
+
 #lista-posts {
   display: flex;
   flex-wrap: wrap;
@@ -104,7 +119,7 @@ export default {
 
 .post {
   margin-top: 1rem;
-  height: 150px;
+  height: 170px;
   width: 400px;
   padding: 20px;
   border: 2px solid #ccc;
@@ -134,4 +149,6 @@ export default {
   border: 2px ridge #53a3ff;
   background-color: rgb(193, 226, 255);
 }
+
+
 </style>
