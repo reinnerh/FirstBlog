@@ -98,14 +98,46 @@ export default {
 
 <style scoped>
 
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+a:-webkit-any-link {
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
-.red {
-  color: red;
+
+.post {
+  text-decoration: none;
+  margin-top: 1rem;
+  width: 400px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  overflow: auto;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.post-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.material-symbols-rounded {
+  display: inline-block;
+  padding: 5px;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 50%;
+  background-color: #ddd;
+  color: #4e8ed6;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
 #lista-posts {
@@ -117,21 +149,8 @@ export default {
   gap: 20px;
 }
 
-.post {
-  margin-top: 1rem;
-  height: 170px;
-  width: 400px;
-  padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
-  overflow: auto;
-}
-
-.post:hover {
-  transform: translateY(-5px);
-  background-color: rgb(193, 226, 255);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+.material-symbols-rounded:hover {
+  background-color: #999;
 }
 
 #search {
@@ -147,8 +166,7 @@ export default {
 
 #search:focus {
   border: 2px ridge #53a3ff;
-  background-color: rgb(193, 226, 255);
+  background-color: #c8def7;
 }
-
 
 </style>
