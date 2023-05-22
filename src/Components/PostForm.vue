@@ -85,6 +85,14 @@ form {
   border-radius: 10px;
 }
 
+form > input {
+  display:flex ;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+}
+
 form > * {
   margin: 1rem;
   border: none;
@@ -93,12 +101,14 @@ form > * {
   font-size: 16px;
   border-radius: 10px;
   width: 100%;
+  background-color: white;
   transition: all 0.3s ease-in-out;
 }
 
 form > input:focus,
 form > textarea:focus {
   border: 5px solid #ccc;
+  background-color: white;
 }
 
 form button {
