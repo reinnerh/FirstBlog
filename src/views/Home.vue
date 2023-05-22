@@ -7,6 +7,8 @@ export default {
   data() {
     return {
       search: "",
+      showModal: false,
+      selectedPost: null,
     };
   },
   computed: {
@@ -35,6 +37,21 @@ export default {
         if (post.title === title) return index;
       }
     },
+    setupModal(id) {
+      this.showModal = !this.showModal;
+
+      if (id) {
+        this.selectedPost = this.posts[id];
+        return;
+      }
+
+      this.selectedPost = null;
+    },
+    deletePost() {
+      const id = this.getPostID(this.selectedPost.title);
+      this.$emit("delete-post",id);
+      this.setupModal()
+    }
   },
 };
 </script>
@@ -52,9 +69,25 @@ export default {
         <RouterLink :to="`/edit/${getPostID(x.title)}`">
           <span class="material-symbols-rounded">edit</span>
         </RouterLink>
+        <span
+          class="material-symbols-rounded"
+          @click="setupModal(getPostID(x.title))"
+          >delete</span
+        >
       </h3>
       <h4>{{ x.datetime }}</h4>
       <p>{{ x.content }}</p>
+    </div>
+  </div>
+  <div class="modal" v-show="showModal">
+    <div class="modal-content">
+      <h3>{{ selectedPost?.title }}</h3>
+      <p>Tem certeza que deseja deletar esse post?</p>
+
+      <div class="modal-actions">
+        <button class="bg-error" @click="setupModal">Cancelar</button>
+        <button class="bg-success" @click="deletePost" >Confirmar</button>
+      </div>
     </div>
   </div>
 </template>
