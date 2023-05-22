@@ -1,3 +1,5 @@
+@import "modal.css";
+
 
 #app {
     height: 100vh;
@@ -6,4 +8,10 @@
     padding: 0;
     overflow: hidden;
     background-color: aliceblue;
+    top: 0;
+    left: 0;
+    right: 0;
 }
+
+
+

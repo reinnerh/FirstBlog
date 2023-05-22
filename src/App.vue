@@ -26,7 +26,20 @@ export default {
     updatePost(updatePost, id) {
       this.posts[id] = updatePost;
     },
-  },
+    removePost(id) {
+      this.posts.splice(id,1)
+
+/*       //metodo 2
+      for (const index in thisposts) {
+       if (index == id) {
+        continue;
+       }
+       const post = this.posts[index];
+       minhaNovaLista.push(post);
+      }
+      this.posts = minhaNovaLista; */
+    }
+  },  
 };
 </script>
 
@@ -39,7 +52,7 @@ export default {
   </header>
 
   <main>
-    <RouterView :posts="posts" @create-post="addPost" @edit-post="updatePost" />
+    <RouterView :posts="posts" @create-post="addPost" @edit-post="updatePost" @delete-post="removePost" />
   </main>
 </template>
 
