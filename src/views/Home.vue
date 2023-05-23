@@ -104,6 +104,10 @@ a:-webkit-any-link {
     text-decoration: underline;
 }
 
+template {
+  
+}
+
 
 .post {
   text-decoration: none;

@@ -1,5 +1,5 @@
 @import "modal.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 #app {
     height: 100vh;
@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-
+    font-family: 'Roboto', sans-serif;
     top: 0;
     left: 0;
     right: 0;
@@ -16,6 +16,7 @@
 html,
 body,
 input {
+  font-family: 'Roboto', sans-serif;
     background-color: aliceblue;
   margin: 0px;
   padding: 0px;
