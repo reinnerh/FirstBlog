@@ -25,7 +25,7 @@ export default {
         return;
       }
 
-      //adicionar o post para lista de posts:
+          //cria constantes e adiciona padStart com 2 para garantir que tenha dois digitos se não coloca um 0 na esquerda
       const now = new Date();
       const day = now.getDate().toString().padStart(2, "0");
       const mes = (now.getMonth() + 1).toString().padStart(2, "0");
