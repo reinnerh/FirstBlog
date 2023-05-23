@@ -104,11 +104,6 @@ a:-webkit-any-link {
     text-decoration: underline;
 }
 
-template {
-  
-}
-
-
 .post {
   text-decoration: none;
   margin-top: 1rem;
@@ -133,7 +128,6 @@ template {
 
 
 .post:hover {
-  transform: translateY(-5px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
