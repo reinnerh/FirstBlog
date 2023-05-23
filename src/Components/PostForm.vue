@@ -25,11 +25,15 @@ export default {
         return;
       }
 
-      //adicionar o post para lista de posts:
+          //cria constantes e adiciona padStart com 2 para garantir que tenha dois digitos se não coloca um 0 na esquerda
       const now = new Date();
-      const dataDaPostagem = `${now.getDate()}/${
-        now.getMonth() + 1
-      }/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`;
+      const day = now.getDate().toString().padStart(2, "0");
+      const mes = (now.getMonth() + 1).toString().padStart(2, "0");
+      const ano = now.getFullYear();
+      const horas = now.getHours().toString().padStart(2, "0");
+      const minutos = now.getMinutes().toString().padStart(2, "0");
+
+      const dataDaPostagem = `${day}/${mes}/${ano} - ${horas}:${minutos}`;
 
       //metodo 1:
       /* this.posts[this.posts.length] = {
@@ -86,7 +90,7 @@ form {
 }
 
 form > input {
-  display:flex ;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;

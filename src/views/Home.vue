@@ -165,11 +165,12 @@ a:-webkit-any-link {
 #search {
   display: block;
   margin: auto;
+  margin-top: 10px;
   padding: 10px;
   font-size: 13px;
   border: 2px solid #ccc;
   border-radius: 10px;
-  width: 20%;
+  width: 400px;
   transition: all 0.5s ease-in-out;
 }
 
